@@ -1,0 +1,6 @@
+framework module Pods_ReSwiftTodoTests {
+  umbrella header "Pods-ReSwiftTodoTests-umbrella.h"
+
+  export *
+  module * { export * }
+}

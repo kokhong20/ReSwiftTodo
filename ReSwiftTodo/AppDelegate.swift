@@ -8,9 +8,12 @@
 
 import UIKit
 
+
+let store: TodoListStore = todoListStore()
+
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
-
+    
     var window: UIWindow?
 
 
