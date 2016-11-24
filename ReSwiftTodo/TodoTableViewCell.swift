@@ -11,7 +11,7 @@ import UIKit
 class TodoTableViewCell: UITableViewCell {
 
     @IBOutlet weak var todoLabel: UILabel!
-    var identifier: String!
+    var identifier: String?
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -23,5 +23,7 @@ class TodoTableViewCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
-
+    @IBAction func deleteButtonClicked(_ sender: Any) {
+        store.dispatch(DeleteTaskAction(identifier: identifier!))
+    }
 }

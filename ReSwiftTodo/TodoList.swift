@@ -16,8 +16,21 @@ struct TodoList {
     var title: String?
     var items: [Todo]
     
+    func indexOf(todoId: String) -> Int? {
+        
+        return items.index(where: { $0.id == todoId })
+    }
+    
     mutating func appendItem(todo: Todo) {
         items.append(todo)
+    }
+    
+    mutating func removeItem(todoID: String) {
+        
+        guard let index = indexOf(todoId: todoID)
+            else { return }
+        
+        items.remove(at: index)
     }
     
     init() {

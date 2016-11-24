@@ -14,3 +14,9 @@ struct InsertTaskAction: Action {
     
     var name: String { return "Insert Task" }
 }
+
+struct DeleteTaskAction: Action {
+    let identifier: String
+    
+    var name: String { return "Delete Task" }
+}

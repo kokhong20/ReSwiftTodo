@@ -11,15 +11,16 @@ import ReSwift
 
 class TodoListReducer: Reducer {
     func handleAction(action: Action, state: TodoListState?) ->  TodoListState {
-        guard let action = action as? InsertTaskAction else {
-            return TodoListState()
-        }
-        
+
         guard var state = state else {
             return TodoListState()
         }
         
-        state.todoList.appendItem(todo: action.todo)
+        if let insertAction = action as? InsertTaskAction {
+            state.todoList.appendItem(todo: insertAction.todo)
+        } else if let deleteAction = action as? DeleteTaskAction {
+            state.todoList.removeItem(todoID: deleteAction.identifier)
+        }
         
         return state
     }
