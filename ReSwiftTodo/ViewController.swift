@@ -35,7 +35,10 @@ class ViewController: UIViewController, UITableViewDataSource, StoreSubscriber {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "reuse") as? TodoTableViewCell else {
             return UITableViewCell()
         }
-        cell.todoLabel.text = data[indexPath.row].title
+        let todo = data[indexPath.row]
+        
+        cell.todoLabel.text = todo.title
+        cell.identifier = todo.id
         return cell
     }
     
